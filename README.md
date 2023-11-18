@@ -2,7 +2,7 @@
 Building the ODA Open API SDK for Rust.
 
 ## Tooling
-Install [Rust](https://www.rust-lang.org/tools/install).
+Install [Rust](https://www.rust-lang.org/tools/install).\
 Install [OpenAPI Generator](https://openapi-generator.tech/docs/installation).
 
 # Generate
