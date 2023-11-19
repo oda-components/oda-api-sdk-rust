@@ -20,6 +20,12 @@ openapi-generator generate --generator-name rust --output tmf639-client --additi
 openapi-generator generate --generator-name rust-server --output tmf639-server --additional-properties packageName=tmf639-server -i https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF639-ResourceInventory-v4.0.0.swagger.json
 ```
 
+## Patch
+Pending resolution of [BUG17136](https://github.com/OpenAPITools/openapi-generator/issues/17136) it is necesssary to path the generated models for the servers:
+```bash
+sed -ie '/#\[validate(/a            length(min=1)' tmf{623,639}-server/src/models.rs
+```
+
 ## Build
 In each API subdirectory:
 ```bash
