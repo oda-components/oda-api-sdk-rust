@@ -21,7 +21,7 @@ openapi-generator generate --generator-name rust-server --output tmf639-server -
 ```
 
 ## Patch
-Pending resolution of [BUG17136](https://github.com/OpenAPITools/openapi-generator/issues/17136) it is necesssary to path the generated models for the servers:
+Pending resolution of [BUG17136](https://github.com/OpenAPITools/openapi-generator/issues/17136) it is necesssary to patch the generated models for the servers:
 ```bash
 sed -ie '/#\[validate(/a            length(min=1)' tmf{623,639}-server/src/models.rs
 ```
