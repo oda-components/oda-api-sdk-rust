@@ -1,0 +1,7 @@
+[workspace]
+members = [
+	"tmf634",
+	"tmf639"
+]
+resolver = "2"
+
