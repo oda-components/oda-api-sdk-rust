@@ -24,13 +24,26 @@ Pending resolution of [BUG17136](https://github.com/OpenAPITools/openapi-generat
 sed -ie '/#\[validate(/a            length(min=1)' tmf{634,639}/src/models.rs
 ```
 
-## Build
+## Build SDK
 ```bash
 cargo build --workspace
 ```
 
-## Document
+## Document SDK
 ```bash
 cargo doc --workspace
+```
+
+## Build Examples
+```bash
+cargo build --examples --workspace
+```
+
+## Run Examples
+```bash
+cargo run --package oda_sdk_tmf634 --example client -- --help
+cargo run --package oda_sdk_tmf634 --example server -- --help
+cargo run --package oda_sdk_tmf639 --example client -- --help
+cargo run --package oda_sdk_tmf639 --example server -- --help
 ```
 
