@@ -23,11 +23,9 @@ jobs:
     - name: Build Rust SDK
       shell: bash
       run: |
-          openapi-generator-cli generate --generator-name rust --output tmf634-client --additional-properties packageName=tmf634-client -i https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF634-ResourceCatalog-v4.1.0.swagger.json
-          openapi-generator-cli generate --generator-name rust-server --output tmf634-server --additional-properties packageName=tmf634-server -i https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF634-ResourceCatalog-v4.1.0.swagger.json
-          openapi-generator-cli generate --generator-name rust --output tmf639-client --additional-properties packageName=tmf639-client -i https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF639-ResourceInventory-v4.0.0.swagger.json
-          openapi-generator-cli generate --generator-name rust-server --output tmf639-server --additional-properties packageName=tmf639-server -i https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF639-ResourceInventory-v4.0.0.swagger.json
-          sed -ie '/#\[validate(/a            length(min=1)' tmf{634,639}-server/src/models.rs
+          openapi-generator-cli generate --generator-name rust-server --output tmf634 --additional-properties packageName=oda_sdk_tmf634 -i https://raw.githubusercontent.com/tmforum-apis/TMF634_ResourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
+          openapi-generator-cli generate --generator-name rust-server --output tmf639 --additional-properties packageName=oda_sdk_tmf639 -i https://raw.githubusercontent.com/tmforum-apis/TMF639_ResourceInventory/master/TMF639-ResourceInventory-v4.0.0.swagger.json
+          sed -ie '/#\[validate(/a            length(min=1)' tmf{634,639}/src/models.rs
           for dir in tmf*/ ; do
               cargo build --manifest-path="$dir"Cargo.toml
               cargo doc --manifest-path="$dir"Cargo.toml
